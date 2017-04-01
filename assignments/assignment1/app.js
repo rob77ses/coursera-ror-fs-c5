@@ -22,7 +22,10 @@ function LunchCheckController($scope) {
   		if(splitLunchMenu[i].trim().length>0){ count++; }
   	}
   	if(count == 0){
-  		$scope.lunchMessage=lunchMessageDataFirst; 
+      //0 elements, no lunch... i first considered as "Please enter data first" but... 
+  		//$scope.lunchMessage=lunchMessageDataFirst; 
+      $scope.lunchMessage="Enjoy!";
+      $scope.color="green";
   	}else{ 
   		$scope.color="green";
   		if(count<4){
