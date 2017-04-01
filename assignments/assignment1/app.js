@@ -24,7 +24,7 @@ function LunchCheckController($scope) {
   	if(count == 0){
       //0 elements, no lunch... i first considered as "Please enter data first" but... 
   		//$scope.lunchMessage=lunchMessageDataFirst; 
-      $scope.lunchMessage="Enjoy!";
+      $scope.lunchMessage="Enjoy! (note: in this case I considered that input has data and that data is a count of zero elements)";
       $scope.color="green";
   	}else{ 
   		$scope.color="green";
