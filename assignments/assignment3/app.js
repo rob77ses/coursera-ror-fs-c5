@@ -28,8 +28,12 @@ NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
 	var controller = this;
 	controller.searchTerm = "";
-	controller.found = [];
 	controller.getMatchedMenuItems = function () {
+		if(controller.searchTerm.trim() == ""){
+			controller.found = [];
+			return;
+		}
+		controller.found = [];
 		var promise = MenuSearchService.getMatchedMenuItems(controller.searchTerm);
 		promise.then(function (response) {
 		  controller.found = response.foundItems;
@@ -40,6 +44,10 @@ function NarrowItDownController(MenuSearchService) {
 	
 	controller.removeItem = function (itemIndex) {
 		controller.found.splice(itemIndex, 1);
+	};
+	
+	controller.nothingFound = function () {
+		return controller.foundItms != null && controller.foundItms.length == 0;
 	};
 }
 
@@ -54,12 +62,10 @@ function MenuSearchService($http, ApiBasePath) {
 	}).then(function (response) {
 		// process result and only keep items that match
 		response.foundItems = [];
-		var ii = 1;
 		for(var i=0; i<response.data.menu_items.length; i++){
 			if(response.data.menu_items[i].description.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1){
-				response.foundItems.push(ii + " ->" + response.data.menu_items[i].description);
+				response.foundItems.push({short_name: response.data.menu_items[i].short_name, name: response.data.menu_items[i].name, description: response.data.menu_items[i].description});
 			}
-			ii++;
 		}
 		return response;
 	});
