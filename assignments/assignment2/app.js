@@ -13,15 +13,9 @@ function ToBuyController(ShoppingListService) {
 
   toBuy.items = ShoppingListService.getToBuyItems();
 
-  
-
   toBuy.boughtItem = function (index) {
     ShoppingListService.boughtItem(index);
   }
-
-  /*toBuy.removeItem = function (itemIndex) {
-    shoppingList.removeItem(itemIndex);
-  };*/
 }
 
 
@@ -31,29 +25,6 @@ function AlreadyBoughtController(ShoppingListService) {
   var alreadyBought = this;
 
   alreadyBought.items = ShoppingListService.getBoughtItems();
-
-  /*var list2 = this;
-
-  // Use factory to create new shopping list service
-  var shoppingList = ShoppingListFactory(3);
-
-  list2.items = shoppingList.getItems();
-
-  list2.itemName = "";
-  list2.itemQuantity = "";
-
-  list2.addItem = function () {
-    try {
-      shoppingList.addItem(list2.itemName, list2.itemQuantity);
-    } catch (error) {
-      list2.errorMessage = error.message;
-    }
-
-  }
-
-  list2.removeItem = function (itemIndex) {
-    shoppingList.removeItem(itemIndex);
-  };*/
 }
 
 
@@ -85,21 +56,6 @@ function ShoppingListService() {
     itemsBought.push(items.splice(index, 1)[0]);
   };
 
-  /*service.addItem = function (itemName, quantity) {
-    var item = {
-      name: itemName,
-      quantity: quantity
-    };
-    items.push(item);
-  };
-
-  service.removeItem = function (itemIdex) {
-    items.splice(itemIdex, 1);
-  };
-
-  service.getItems = function () {
-    return items;
-  };*/
 }
 
 })();
