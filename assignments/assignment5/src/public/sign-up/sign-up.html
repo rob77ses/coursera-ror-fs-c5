@@ -11,11 +11,11 @@
 			<div>*Email address: <span ng-if="registration.emailaddress.$invalid && registration.emailaddress.$touched">Must be a valid email address: handle@domain format</span>
 				<input type="email" name="emailaddress" placeholder="Email address" ng-model="signUpCtrl.myInfo.emailaddress" class="form-control" required>
 			</div>
-			<div>Phone number: <span ng-if="registration.phonenumber.$invalid && registration.phonenumber.$touched">Phone must be in the format ###-###-####</span>
-				<input type="text" name="phonenumber" placeholder="Phone ###-###-####" ng-model="signUpCtrl.myInfo.phonenumber" class="form-control" pattern="(\d{3})-(\d{3})-(\d{4})">
+			<div>*Phone number: <span ng-if="registration.phonenumber.$invalid && registration.phonenumber.$touched">Phone must be in the format ###-###-####</span>
+				<input type="text" name="phonenumber" placeholder="Phone ###-###-####" ng-model="signUpCtrl.myInfo.phonenumber" class="form-control" pattern="(\d{3})-(\d{3})-(\d{4})" required>
 			</div>
 			<div>*Menu item short name: 
-				<input type="text" name="short_name" placeholder="Menu number" ng-model="signUpCtrl.myInfo.short_name" ng-change="signUpCtrl.myInfo.short_name = (signUpCtrl.myInfo.short_name | uppercase)" class="form-control">
+				<input type="text" name="short_name" placeholder="Menu number" ng-model="signUpCtrl.myInfo.short_name" ng-change="signUpCtrl.myInfo.short_name = (signUpCtrl.myInfo.short_name | uppercase)" class="form-control" required>
 			</div>
 			<br>
 			<span class="col-sm-4">
