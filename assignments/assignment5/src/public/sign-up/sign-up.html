@@ -1,0 +1,34 @@
+<div class="container form-group">
+	<fieldset class="scheduler-border">
+		<legend class="scheduler-border">Registration</legend>
+		<form name='registration' novalidate>
+			<div>*First name: <span ng-if="registration.firstname.$error.required && registration.firstname.$touched">First name is needed</span>
+				<input type="text" name="firstname" placeholder="First name" ng-model="signUpCtrl.myInfo.firstname" class="form-control" required>
+			</div>
+			<div>*Last name: <span ng-if="registration.lastname.$error.required && registration.lastname.$touched">Last name is needed</span>
+				<input type="text" name="lastname" placeholder="Last name" ng-model="signUpCtrl.myInfo.lastname" class="form-control" required>
+			</div>
+			<div>*Email address: <span ng-if="registration.emailaddress.$invalid && registration.emailaddress.$touched">Must be a valid email address: handle@domain format</span>
+				<input type="email" name="emailaddress" placeholder="Email address" ng-model="signUpCtrl.myInfo.emailaddress" class="form-control" required>
+			</div>
+			<div>Phone number: <span ng-if="registration.phonenumber.$invalid && registration.phonenumber.$touched">Phone must be in the format ###-###-####</span>
+				<input type="text" name="phonenumber" placeholder="Phone ###-###-####" ng-model="signUpCtrl.myInfo.phonenumber" class="form-control" pattern="(\d{3})-(\d{3})-(\d{4})">
+			</div>
+			<div>*Menu item short name: 
+				<input type="text" name="short_name" placeholder="Menu number" ng-model="signUpCtrl.myInfo.short_name" ng-change="signUpCtrl.myInfo.short_name = (signUpCtrl.myInfo.short_name | uppercase)" class="form-control">
+			</div>
+			<br>
+			<span class="col-sm-4">
+				<div id="review" ng-if="signUpCtrl.review">
+					Menu item short_name not found, try A1, V2, or other valid short_name!
+				</div>
+			</span>
+			<span><button class="col-sm-4" ng-disabled="registration.$invalid" ng-click="signUpCtrl.submit()">Register</button></span>
+			<span class="col-sm-4">
+				<div id="success" ng-if="signUpCtrl.success">
+					Registration completed!
+				</div>
+			</span>
+		</form>
+	</fieldset>
+</div>

@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row" ng-if="!myInfoCtrl.myInfo.signedUp">
+	  <h2 id="my-info-title" class="text-center">
+		Not Signed Up Yet. <a ui-sref="public.signUp"><div><span>Sign up Now!</span></div></a>
+	  </h2>
+  </div>
+  <div ng-if="myInfoCtrl.myInfo.signedUp">
+	  <div class="row">
+		  <h2 id="my-info-title" class="text-center">
+			MY PERSONAL INFO
+		  </h2>
+		  <div id="my-info-firstname" class="text-center">
+			{{ myInfoCtrl.myInfo.firstname}}
+		  </div>
+		  <div id="my-info-lastname" class="text-center">
+			{{ myInfoCtrl.myInfo.lastname}}
+		  </div>
+		  <div id="my-info-address" class="text-center">
+			{{ myInfoCtrl.myInfo.emailaddress}}
+		  </div>
+		  <div id="my-info-phonenumber" class="text-center">
+			{{ myInfoCtrl.myInfo.phonenumber}}
+		  </div>
+		  <br>
+		  <div id="my-info-menuitem-name" class="text-center">
+			{{ myInfoCtrl.myInfo.menu_item.name}}
+		  </div>
+		  <div id="my-info-menuitem-description" class="text-center">
+			{{ myInfoCtrl.myInfo.menu_item.description}}
+		  </div>
+	  </div>
+	  <div class="row">
+		  <div id="menu_item_img" class="menu-item-photo" ng-if="myInfoCtrl.myInfo.menu_item.short_name">
+				<div class="ng-binding">{{ myInfoCtrl.myInfo.menu_item.short_name}}</div>
+				<img width="250" height="150" ng-src="{{ myInfoCtrl.basePath }}/images/{{ myInfoCtrl.myInfo.menu_item.short_name }}.jpg" alt="{{ myInfoCtrl.myInfo.menu_item.name }}">
+		  </div>
+	  </div>
+  </div>
+</div>
